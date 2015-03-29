@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script>
+    
+    var currentText="";  
+    var strOper="";  
+
+    
+    function numberBtn(str) {
+
+        
+        if (strOper==null) {
+            document.getElementById("box").value = str;
+            strOper="";
+            return;
+        };
+
+       if (document.getElementById("box").value==0) { 
+            document.getElementById("box").value = str;
+        } else {
+        document.getElementById("box").value += str;
+        }
+
+    }
+
+
+    
+    function operBtn(str){
+
+ 
+        equal();
+
+        valueA=document.getElementById("box").value;
+        strOper=str;
+
+        document.getElementById("box").value=0;
+    }
+
+    
+    function equal(){   
+
+        switch (strOper){
+            case '+':
+                document.getElementById("box").value=parseFloat(valueA)+parseFloat(document.getElementById("box").value);
+                break;
+            case '-':
+                document.getElementById("box").value=parseFloat(valueA)-parseFloat(document.getElementById("box").value);
+                break;
+            case '*':
+                document.getElementById("box").value=parseFloat(valueA)*parseFloat(document.getElementById("box").value);
+                break;
+            case '/':
+                document.getElementById("box").value=parseFloat(valueA)/parseFloat(document.getElementById("box").value);
+                break;
+            default:
+                break;
+        }
+
+
+        
+        currnetText=null;
+        strOper=null;
+    }
+</script>
+<title>Caculator</title>
+</head>
+
+<body>
+<table width="477" height="269" border=1>
+    <tr>
+        <td align="center" colspan="6"> 
+            <input align="right" type="text" value="0" id="box"  />
+        </td>
+    </tr>
+
+
+    <tr align="center">
+         <td>    <input  type="button" value="+" onClick="operBtn('+')"> </td>
+        <td>    <input  type="button" value="7" onClick="numberBtn('7')">  </td>
+        <td>    <input  type="button" value="8" onClick="numberBtn('8')">  </td>
+        <td>    <input  type="button" value="9" onClick="numberBtn('9')">  </td>
+       
+    </tr>
+
+    <tr align="center">
+         <td>    <input  type="button" value="-" onClick="operBtn('-')"> </td>
+        <td>    <input  type="button" value="4" onClick="numnerBtn('4')">  </td>
+        <td>    <input  type="button" value="5" onClick="numberBtn('5')">  </td>
+        <td>    <input  type="button" value="6" onClick="numberBtn('6')">  </td>
+    </tr>
+
+    <tr align="center">
+        <td>    <input  type="button" value="*" onClick="operBtn('*')"> </td>
+        <td>    <input  type="button" value="1" onClick="numberBtn('1')">  </td>
+        <td>    <input  type="button" value="2" onClick="numberBtn('2')">  </td>
+        <td>    <input  type="button" value="3" onClick="numberBtn('3')">  </td>
+    </tr>
+
+    <tr align="center">
+        <td>    <input  type="button" value="/" onClick="operBtn('/')"> </td>
+        <td>    <input  type="button" value="." onClick="numberBtn('.')">  </td>
+        <td>    <input  type="button" value="0" onClick="numberBtn('0')">  </td>
+        <td>    <input  type="button" value="=" onClick="equal()">      </td>
+      
+    </tr>
+</table>
+<body bgcolor="#D4FFD4">
+</body>
+</html>
